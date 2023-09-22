@@ -1,0 +1,67 @@
+﻿using System;
+
+namespace _5._Special_Numbers
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int number = int.Parse(Console.ReadLine());
+
+            for (int cn = 1111; cn <= 9999; cn++)
+            {
+                
+
+                String cnDigits = cn.ToString();
+
+                bool isSpecial = true;
+
+                for (int curDigit = 0; curDigit < cnDigits.Length; curDigit++)
+                {
+                    int curDigitNumber = int.Parse(cnDigits[curDigit].ToString()); 
+
+                    if (curDigitNumber == 0 || number % curDigitNumber != 0)                 
+                    {
+                        isSpecial = false;
+                        break; 
+                    }
+                }
+                if (isSpecial)
+                    Console.Write(cn + " ");
+            }
+        }
+        static void Main__()
+        {
+            int n = int.Parse(Console.ReadLine());
+
+            for (int digit = 1111; digit <= 9999; digit++)
+            {
+
+                String digits = digit.ToString();
+
+                bool isSpecial = true;
+                for (int curDigitIdx = 0; curDigitIdx < digits.Length; curDigitIdx++)
+                {
+                    int curDigit = int.Parse(digits[curDigitIdx].ToString());
+
+                    if (curDigit == 0)
+                    {
+                        isSpecial = false;
+                        break;
+                    }
+
+                    if (n % curDigit != 0)
+                    {
+                        isSpecial = false;
+                        break;
+                    }
+                }
+
+                if (isSpecial)
+                    Console.Write(digit + " ");
+            }
+
+            Console.WriteLine();
+        }
+    }
+}
